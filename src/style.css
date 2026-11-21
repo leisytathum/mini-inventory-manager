@@ -1,0 +1,78 @@
+/* Estilos generales de la aplicación */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #f7f4fd;
+  color: #1f2937;
+}
+.encabezado { background: #c4b5fd; color: #3b0764; padding: 20px 24px; }
+.encabezado h1 { margin: 0; font-size: 1.6rem; }
+.encabezado p { margin: 4px 0 0; opacity: .85; }
+.contenedor { width: 100%; padding: 20px 16px; }
+
+/* Resumen */
+.resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.dato { background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-left: 5px solid #8b5cf6; }
+.dato .titulo { display: block; font-size: .85rem; color: #6b7280; }
+.dato .valor { display: block; font-size: 1.5rem; font-weight: 700; margin-top: 4px; }
+.dato .valor small { display: block; font-size: .9rem; font-weight: 500; color: #7c3aed; }
+.sin-dato { color: #9ca3af; }
+
+/* Layout */
+.columnas { display: grid; grid-template-columns: 360px 1fr; gap: 20px; align-items: start; }
+@media (max-width: 860px) { .columnas { grid-template-columns: 1fr; } }
+.tarjeta { background: #fff; border-radius: 10px; padding: 18px; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.tarjeta h2 { margin: 0 0 14px; font-size: 1.15rem; }
+.formulario.editando { outline: 2px solid #a78bfa; }
+
+/* Formulario */
+label { display: block; font-size: .9rem; font-weight: 600; margin-top: 10px; }
+input, select { width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font: inherit; }
+input:focus, select:focus { outline: none; border-color: #8b5cf6; box-shadow: 0 0 0 2px rgba(139,92,246,.25); }
+.invalido { border-color: #dc2626; }
+.error { color: #dc2626; font-size: .8rem; margin: 4px 0 0; }
+.exito { color: #16a34a; font-weight: 600; margin: 10px 0 0; }
+.acciones { display: flex; gap: 8px; margin-top: 16px; }
+
+/* Botones */
+.btn { padding: 8px 14px; border: 1px solid #cbd5e1; background: #fff; border-radius: 6px; cursor: pointer; font: inherit; }
+.btn:hover { background: #f3f4f6; }
+.btn.primario { background: #8b5cf6; border-color: #8b5cf6; color: #fff; }
+.btn.primario:hover { background: #7c3aed; }
+.btn.peligro { color: #dc2626; border-color: #fca5a5; }
+.btn.peligro:hover { background: #fef2f2; }
+.btn.pequeno { padding: 4px 10px; font-size: .85rem; }
+
+/* Filtros y tabla */
+.filtros { display: grid; grid-template-columns: 1fr 200px; gap: 10px; }
+.filtros input, .filtros select { margin-top: 0; }
+@media (max-width: 560px) { .filtros { grid-template-columns: 1fr; } }
+.contador { font-size: .85rem; color: #6b7280; margin: 10px 0; }
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { padding: 10px 8px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+th { background: #f5f3ff; font-size: .8rem; text-transform: uppercase; color: #6d28d9; }
+.num { text-align: right; white-space: nowrap; }
+.botones { white-space: nowrap; }
+.botones .btn + .btn { margin-left: 6px; }
+.fila-editando { background: #f3e8ff; }
+.etiqueta { background: #ede9fe; color: #5b21b6; padding: 2px 8px; border-radius: 999px; font-size: .8rem; }
+.vacio { text-align: center; color: #6b7280; padding: 30px 0; }
+
+/* Modal */
+.modal-fondo { position: fixed; inset: 0; background: rgba(46,16,101,.35); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 100; }
+.modal-caja { background: #fff; border-radius: 16px; padding: 28px 26px 22px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 20px 50px rgba(76,29,149,.25); }
+.modal-caja h3 { margin: 12px 0 6px; font-size: 1.25rem; color: #3b0764; }
+.modal-caja p { margin: 0; color: #4b5563; line-height: 1.45; }
+.modal-icono { width: 58px; height: 58px; margin: 0 auto; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: 700; }
+.modal-icono.exito { background: #ede9fe; color: #7c3aed; }
+.modal-icono.confirmar { background: #fee2e2; color: #dc2626; }
+.modal-botones { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
+.modal-botones .btn { min-width: 120px; }
+.btn.eliminar { background: #dc2626; border-color: #dc2626; color: #fff; }
+.btn.eliminar:hover { background: #b91c1c; }
+.modal-enter-active, .modal-leave-active { transition: opacity .2s ease; }
+.modal-enter-active .modal-caja, .modal-leave-active .modal-caja { transition: transform .2s ease; }
+.modal-enter-from, .modal-leave-to { opacity: 0; }
+.modal-enter-from .modal-caja, .modal-leave-to .modal-caja { transform: scale(.92); }
